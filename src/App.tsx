@@ -1,11 +1,13 @@
+import { CssBaseline } from '@mui/material'
 import './App.css'
-import { Button } from '@mui/material'
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
   return (
-    <div className='App'>
-      <Button variant='contained'>Hello World</Button>
-    </div>
+    <>
+      <CssBaseline />
+      <Dashboard />
+    </>
   )
 }
 
