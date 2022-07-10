@@ -14,6 +14,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
+import { WEBSITE_LOGO } from '../../utils/assetsPath'
 
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -22,7 +23,7 @@ import {
   setDrawerClose,
 } from '../../features/menuDrawer/menuDrawerSlice'
 
-const drawerWidth = 240
+const drawerWidth = 255
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -44,15 +45,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
 })
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}))
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -86,11 +78,21 @@ const Dashboard = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <Drawer variant='permanent' open={isDrawerOpened}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerState}>
+        <Box
+          display='flex'
+          justifyContent={isDrawerOpened ? 'space-between' : 'center'}
+          mb={4}
+          sx={{ padding: '29px 20px 0 20px' }}
+        >
+          {isDrawerOpened && <img src={WEBSITE_LOGO} alt='website logo' />}
+          <IconButton
+            onClick={handleDrawerState}
+            aria-label='close sidemenu'
+            disableRipple
+          >
             <MenuIcon />
           </IconButton>
-        </DrawerHeader>
+        </Box>
         <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -149,7 +151,6 @@ const Dashboard = () => {
         </List>
       </Drawer>
       <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
