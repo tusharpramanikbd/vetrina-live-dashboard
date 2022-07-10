@@ -18,6 +18,9 @@ import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 
+import { useAppSelector } from '../../app/reduxHooks'
+import { menuDrawerSelector } from '../../features/menuDrawer/menuDrawerSlice'
+
 const drawerWidth = 240
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -92,6 +95,10 @@ const Drawer = styled(MuiDrawer, {
 const Dashboard = () => {
   const theme = useTheme()
   const [open, setOpen] = React.useState(true)
+
+  const { isDrawerOpened } = useAppSelector(menuDrawerSelector)
+
+  console.log('Drawer Status:', isDrawerOpened)
 
   const handleDrawerOpen = () => {
     setOpen(true)
