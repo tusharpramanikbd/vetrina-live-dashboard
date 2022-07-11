@@ -15,7 +15,7 @@ import CustomerSupportIcon from '../icons/CustomerSupportIcon'
 import ShareShopIcon from '../icons/ShareShopIcon'
 import ViewShopIcon from '../icons/ViewShopIcon'
 
-const SideMenuItems = [
+const SideMenuList = [
   {
     id: '1',
     title: 'Dashboard',
@@ -98,4 +98,4 @@ const SideMenuItems = [
   },
 ]
 
-export default SideMenuItems
+export default SideMenuList

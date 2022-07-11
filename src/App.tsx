@@ -1,12 +1,14 @@
-import { CssBaseline } from '@mui/material'
 import './App.css'
 import Dashboard from './components/Dashboard/Dashboard'
+import { ThemeProvider } from '@mui/material'
+import { MyTheme } from './MuiCustomTheme'
 
 function App() {
   return (
     <>
-      <CssBaseline />
-      <Dashboard />
+      <ThemeProvider theme={MyTheme}>
+        <Dashboard />
+      </ThemeProvider>
     </>
   )
 }

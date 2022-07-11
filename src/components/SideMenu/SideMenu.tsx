@@ -1,18 +1,11 @@
 import React from 'react'
 import Box from '@mui/material/Box'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import SvgIcon from '@mui/material/SvgIcon'
 
 import { WEBSITE_LOGO } from '../../utils/assetsPath'
 import Drawer from './Drawer'
-import SideMenuItems from '../../data/SideMenuItems'
+import SideMenuList from '../../data/SideMenuList'
 
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -20,7 +13,7 @@ import {
   setDrawerOpen,
   setDrawerClose,
 } from '../../features/menuDrawer/menuDrawerSlice'
-import { green } from '@mui/material/colors'
+import SideMenuItem from './SideMenuItem'
 
 // React Component
 const SideMenu = () => {
@@ -37,6 +30,7 @@ const SideMenu = () => {
 
   return (
     <Drawer variant='permanent' open={isDrawerOpened}>
+      {/* Drawer Header */}
       <Box
         display='flex'
         justifyContent={isDrawerOpened ? 'space-between' : 'center'}
@@ -48,34 +42,13 @@ const SideMenu = () => {
           <MenuIcon />
         </IconButton>
       </Box>
-      <Divider />
-      <List>
-        {SideMenuItems.map((item) => (
-          <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: isDrawerOpened ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: isDrawerOpened ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                {/* <SvgIcon component={item.icon} sx={{ color: green[500] }} /> */}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.title}
-                sx={{ opacity: isDrawerOpened ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      {/* End of Drawer Header */}
+
+      {/* Drawer Body */}
+      {SideMenuList.map((item) => (
+        <SideMenuItem title={item.title || ''} Icon={item.icon} />
+      ))}
+      {/* End of Drawer Body */}
     </Drawer>
   )
 }
