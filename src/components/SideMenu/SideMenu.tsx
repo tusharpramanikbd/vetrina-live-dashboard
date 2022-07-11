@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -22,10 +22,15 @@ const SideMenu = () => {
   const dispatch = useAppDispatch()
 
   const [menuSelected, setMenuSelected] = useState(0)
+  const [showSubMenuItems, setShowSubMenuItems] = useState(false)
 
-  const handleDrawerState = () => {
+  const handleDrawerState = (
+    showSubItems: boolean,
+    setShowSubItems: Dispatch<SetStateAction<boolean>>
+  ) => {
     if (isDrawerOpened) {
       dispatch(setDrawerClose())
+      showSubItems && setShowSubItems(false)
     } else {
       dispatch(setDrawerOpen())
     }
@@ -41,7 +46,11 @@ const SideMenu = () => {
         sx={{ padding: '29px 20px 0 20px' }}
       >
         {isDrawerOpened && <img src={WEBSITE_LOGO} alt='website logo' />}
-        <IconButton onClick={handleDrawerState}>
+        <IconButton
+          onClick={() =>
+            handleDrawerState(showSubMenuItems, setShowSubMenuItems)
+          }
+        >
           <MenuIcon />
         </IconButton>
       </Box>
@@ -58,6 +67,8 @@ const SideMenu = () => {
                 badge={item.badge}
                 subMenuItems={item.subMenuItems}
                 isMenuSelected={menuSelected === index}
+                showSubMenuItems={showSubMenuItems}
+                setShowSubMenuItems={setShowSubMenuItems}
               />
             </div>
           )) ||

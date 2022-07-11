@@ -1,9 +1,13 @@
 import { Badge, Box, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { SideMenuItemType } from '../../@types/SideMenuItemType'
-import { useAppSelector } from '../../app/reduxHooks'
-import { menuDrawerSelector } from '../../features/menuDrawer/menuDrawerSlice'
+import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
+import {
+  menuDrawerSelector,
+  setDrawerOpen,
+} from '../../features/menuDrawer/menuDrawerSlice'
 import ArrowDownIcon from '../../icons/ArrowDownIcon'
+import ArrowUpIcon from '../../icons/ArrowUpIcon'
 
 const SideMenuItem: React.FC<SideMenuItemType> = ({
   title,
@@ -11,18 +15,25 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
   badge,
   subMenuItems,
   isMenuSelected,
+  showSubMenuItems,
+  setShowSubMenuItems,
 }: SideMenuItemType) => {
   const { isDrawerOpened } = useAppSelector(menuDrawerSelector)
+  const dispatch = useAppDispatch()
   const theme = useTheme()
 
-  const handleMenuItemClick = () => {}
+  const handleMenuItemClick = () => {
+    !isDrawerOpened && dispatch(setDrawerOpen())
+    setShowSubMenuItems(true)
+    showSubMenuItems && isMenuSelected && setShowSubMenuItems(false)
+  }
 
   return (
     <Box
       display='flex'
       flexDirection='column'
       style={{ fontFamily: '"Noto Sans HK", sans-serif' }}
-      onClick={handleMenuItemClick}
+      onClick={(subMenuItems && handleMenuItemClick) || undefined}
     >
       <Box
         display='flex'
@@ -51,7 +62,6 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
               fontSize='14px'
               sx={{
                 color: isMenuSelected ? '#21B8F9' : theme.palette.text.primary,
-                userSelect: 'none',
               }}
             >
               {title}
@@ -75,10 +85,37 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
             }}
           />
         )) ||
-          (subMenuItems && isDrawerOpened && (
-            <ArrowDownIcon style={{ marginRight: '6px' }} />
-          ))}
+          (subMenuItems &&
+            isDrawerOpened &&
+            (showSubMenuItems && isMenuSelected ? (
+              <ArrowUpIcon style={{ marginRight: '6px' }} />
+            ) : (
+              <ArrowDownIcon style={{ marginRight: '6px' }} />
+            )))}
       </Box>
+      {/* subItems */}
+      {subMenuItems && (
+        <Box
+          display={showSubMenuItems && isMenuSelected ? 'flex' : 'none'}
+          flexDirection='column'
+          sx={{
+            paddingLeft: '59px',
+            paddingTop: '20px',
+            bgcolor: '#E9F8FE',
+          }}
+        >
+          {subMenuItems.map((item) => (
+            <Box
+              key={item.id}
+              sx={{
+                marginBottom: '20px',
+              }}
+            >
+              <Typography fontSize='14px'>{item.title}</Typography>
+            </Box>
+          ))}
+        </Box>
+      )}
     </Box>
   )
 }
