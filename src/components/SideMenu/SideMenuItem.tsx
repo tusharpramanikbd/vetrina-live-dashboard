@@ -9,6 +9,7 @@ import {
 import ArrowDownIcon from '../../icons/ArrowDownIcon'
 import ArrowUpIcon from '../../icons/ArrowUpIcon'
 
+// Functional Component
 const SideMenuItem: React.FC<SideMenuItemType> = ({
   title,
   Icon,
@@ -99,8 +100,8 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
           display={showSubMenuItems && isMenuSelected ? 'flex' : 'none'}
           flexDirection='column'
           sx={{
-            paddingLeft: '59px',
-            paddingTop: '20px',
+            paddingLeft: '56px',
+            paddingTop: '15px',
             bgcolor: '#E9F8FE',
           }}
         >
