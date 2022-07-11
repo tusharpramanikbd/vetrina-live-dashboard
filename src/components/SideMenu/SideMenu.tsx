@@ -14,6 +14,7 @@ import {
   setDrawerClose,
 } from '../../features/menuDrawer/menuDrawerSlice'
 import SideMenuItem from './SideMenuItem'
+import { Divider } from '@mui/material'
 
 // React Component
 const SideMenu = () => {
@@ -45,9 +46,21 @@ const SideMenu = () => {
       {/* End of Drawer Header */}
 
       {/* Drawer Body */}
-      {SideMenuList.map((item) => (
-        <SideMenuItem title={item.title || ''} Icon={item.icon} />
-      ))}
+      {SideMenuList.map(
+        (item) =>
+          (item.isSideMenuItem && (
+            <SideMenuItem
+              key={item.id}
+              title={item.title || ''}
+              Icon={item.icon}
+              badge={item.badge}
+              subMenuItems={item.subMenuItems}
+            />
+          )) ||
+          (item.isDividerItem && (
+            <Divider key={item.id} sx={{ margin: '20px 0' }} />
+          ))
+      )}
       {/* End of Drawer Body */}
     </Drawer>
   )
