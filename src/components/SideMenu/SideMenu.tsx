@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -20,6 +20,8 @@ import { Divider } from '@mui/material'
 const SideMenu = () => {
   const { isDrawerOpened } = useAppSelector(menuDrawerSelector)
   const dispatch = useAppDispatch()
+
+  const [menuSelected, setMenuSelected] = useState(0)
 
   const handleDrawerState = () => {
     if (isDrawerOpened) {
@@ -47,15 +49,17 @@ const SideMenu = () => {
 
       {/* Drawer Body */}
       {SideMenuList.map(
-        (item) =>
+        (item, index) =>
           (item.isSideMenuItem && (
-            <SideMenuItem
-              key={item.id}
-              title={item.title || ''}
-              Icon={item.icon}
-              badge={item.badge}
-              subMenuItems={item.subMenuItems}
-            />
+            <div onClick={() => setMenuSelected(index)} key={item.id}>
+              <SideMenuItem
+                title={item.title || ''}
+                Icon={item.icon}
+                badge={item.badge}
+                subMenuItems={item.subMenuItems}
+                isMenuSelected={menuSelected === index}
+              />
+            </div>
           )) ||
           (item.isDividerItem && (
             <Divider key={item.id} sx={{ margin: '20px 0' }} />

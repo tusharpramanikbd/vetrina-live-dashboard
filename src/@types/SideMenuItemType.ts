@@ -7,4 +7,5 @@ export type SideMenuItemType = {
   Icon: ComponentType<CustomIconType>
   badge?: number
   subMenuItems?: SideSubMenuItemType[]
+  isMenuSelected?: boolean
 }
