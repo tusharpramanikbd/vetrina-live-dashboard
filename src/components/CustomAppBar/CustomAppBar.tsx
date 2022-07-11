@@ -10,10 +10,10 @@ export default function CustomAppBar() {
   const theme = useTheme()
   return (
     <AppBar
-      position='static'
-      color='transparent'
+      position='fixed'
       elevation={0}
       sx={{
+        bgcolor: '#fff',
         borderBottom: '1px solid #00000013',
         padding: '0 15px',
       }}
@@ -26,6 +26,7 @@ export default function CustomAppBar() {
           fontSize='17px'
           fontWeight='500'
           component='div'
+          marginLeft={32}
           color={theme.palette.text.secondary}
         >
           Dashboard
