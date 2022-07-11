@@ -8,11 +8,11 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
+import SvgIcon from '@mui/material/SvgIcon'
 
 import { WEBSITE_LOGO } from '../../utils/assetsPath'
 import Drawer from './Drawer'
+import SideMenuItems from '../../data/SideMenuItems'
 
 import { useAppSelector, useAppDispatch } from '../../app/reduxHooks'
 import {
@@ -20,7 +20,9 @@ import {
   setDrawerOpen,
   setDrawerClose,
 } from '../../features/menuDrawer/menuDrawerSlice'
+import { green } from '@mui/material/colors'
 
+// React Component
 const SideMenu = () => {
   const { isDrawerOpened } = useAppSelector(menuDrawerSelector)
   const dispatch = useAppDispatch()
@@ -48,8 +50,8 @@ const SideMenu = () => {
       </Box>
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        {SideMenuItems.map((item) => (
+          <ListItem key={item.id} disablePadding sx={{ display: 'block' }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -64,38 +66,10 @@ const SideMenu = () => {
                   justifyContent: 'center',
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {/* <SvgIcon component={item.icon} sx={{ color: green[500] }} /> */}
               </ListItemIcon>
               <ListItemText
-                primary={text}
-                sx={{ opacity: isDrawerOpened ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: isDrawerOpened ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: isDrawerOpened ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText
-                primary={text}
+                primary={item.title}
                 sx={{ opacity: isDrawerOpened ? 1 : 0 }}
               />
             </ListItemButton>
