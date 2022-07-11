@@ -1,8 +1,8 @@
 import { ComponentType, Dispatch, SetStateAction } from 'react'
-import { CustomIconType } from './CustomIconType'
-import { SideSubMenuItemType } from './SideSubMenuItemType'
+import CustomIconType from './CustomIconType'
+import SideSubMenuItemType from './SideSubMenuItemType'
 
-export type SideMenuItemType = {
+interface SideMenuItemType {
   title: string
   Icon: ComponentType<CustomIconType>
   badge?: number
@@ -11,3 +11,5 @@ export type SideMenuItemType = {
   showSubMenuItems: boolean
   setShowSubMenuItems: Dispatch<SetStateAction<boolean>>
 }
+
+export default SideMenuItemType

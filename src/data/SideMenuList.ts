@@ -169,6 +169,33 @@ const SideMenuList = [
     icon: ViewShopIcon,
     isSideMenuItem: true,
   },
+  {
+    id: '18',
+    isDropdown: true,
+    title: 'Select your shop',
+    items: [
+      {
+        id: '18.1',
+        data: 'Fenoh Store',
+      },
+      {
+        id: '18.2',
+        data: 'Fenoh Store 2',
+      },
+      {
+        id: '18.3',
+        data: 'Fenoh Store 3',
+      },
+      {
+        id: '18.4',
+        data: 'Fenoh Store 4',
+      },
+      {
+        id: '18.5',
+        data: 'Fenoh Store 5',
+      },
+    ],
+  },
 ]
 
 export default SideMenuList

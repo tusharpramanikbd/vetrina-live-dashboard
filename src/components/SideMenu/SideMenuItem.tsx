@@ -1,6 +1,6 @@
 import { Badge, Box, Typography, useTheme } from '@mui/material'
 import React from 'react'
-import { SideMenuItemType } from '../../@types/SideMenuItemType'
+import SideMenuItemType from '../../@types/SideMenuItemType'
 import { useAppDispatch, useAppSelector } from '../../app/reduxHooks'
 import {
   menuDrawerSelector,

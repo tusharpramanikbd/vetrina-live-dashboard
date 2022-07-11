@@ -15,6 +15,7 @@ import {
 } from '../../features/menuDrawer/menuDrawerSlice'
 import SideMenuItem from './SideMenuItem'
 import { Divider } from '@mui/material'
+import CustomDropdown from '../CustomDropdown/CustomDropdown'
 
 // React Component
 const SideMenu = () => {
@@ -74,6 +75,11 @@ const SideMenu = () => {
           )) ||
           (item.isDividerItem && (
             <Divider key={item.id} sx={{ margin: '20px 0' }} />
+          )) ||
+          (item.isDropdown && isDrawerOpened && (
+            <Box key={item.id} style={{ marginTop: '60px' }}>
+              <CustomDropdown title={item.title} data={item.items} />
+            </Box>
           ))
       )}
       {/* End of Drawer Body */}

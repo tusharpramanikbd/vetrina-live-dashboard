@@ -1,6 +1,8 @@
 import React from 'react'
 
-export interface CustomIconType {
+interface CustomIconType {
   color?: string | null | false
   style?: React.CSSProperties
 }
+
+export default CustomIconType

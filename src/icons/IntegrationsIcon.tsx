@@ -1,4 +1,4 @@
-import { CustomIconType } from '../@types/CustomIconType'
+import CustomIconType from '../@types/CustomIconType'
 
 const IntegrationsIcon: React.FC<CustomIconType> = ({
   color,
