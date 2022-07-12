@@ -34,7 +34,7 @@ const TrustPilotCard = () => {
             alignItems: 'flex-start',
           }}
           text='Write a review on Trustpilot'
-          hasIcon={false}
+          hasIcon={true}
           fromWelcomeSection={false}
         />
       }
