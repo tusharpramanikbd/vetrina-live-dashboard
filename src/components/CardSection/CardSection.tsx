@@ -4,6 +4,7 @@ import VisitorsCard from '../Cards/VisitorsCard'
 import OrdersCard from '../Cards/OrdersCard'
 import MobileCard from '../Cards/MobileCard'
 import ConfigureShopCard from '../Cards/ConfigureShopCard'
+import TrustPilotCard from '../Cards/TrustPilotCard'
 
 const CardSection = () => {
   return (
@@ -44,7 +45,7 @@ const CardSection = () => {
             <ConfigureShopCard />
           </Grid>
           <Grid item xs={12}>
-            <VisitorsCard />
+            <TrustPilotCard />
           </Grid>
         </Grid>
       </Grid>

@@ -16,6 +16,7 @@ const WrapperCard: React.FC<WrapperCardType> = ({
   title,
   style,
   headerLink,
+  textColor,
 }: WrapperCardType) => {
   return (
     <Card
@@ -33,7 +34,12 @@ const WrapperCard: React.FC<WrapperCardType> = ({
           avatar={HeaderIcon && <HeaderIcon />}
           title={
             title && (
-              <Typography fontSize={'20px'} fontWeight={500}>
+              <Typography
+                fontSize={'20px'}
+                fontWeight={500}
+                color={textColor}
+                marginLeft={textColor && '-14px'}
+              >
                 {title}
               </Typography>
             )

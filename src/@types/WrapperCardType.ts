@@ -8,6 +8,7 @@ type WrapperCardType = {
   title?: string
   hasDropdown?: boolean
   style?: CSSProperties
+  textColor?: string
 }
 
 export default WrapperCardType
