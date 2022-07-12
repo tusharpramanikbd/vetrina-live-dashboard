@@ -6,6 +6,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 const CustomDropdown: React.FC<DropdownBoxDataType> = ({
   title,
   data,
+  sxStyle,
+  isFromSideDrawer,
 }: DropdownBoxDataType) => {
   const [dropdownValue, setDropdownValue] = useState(data[0].data)
 
@@ -17,24 +19,25 @@ const CustomDropdown: React.FC<DropdownBoxDataType> = ({
   }
 
   return (
-    <Box sx={{ margin: '0 20px', marginBottom: '24px' }}>
+    <Box
+      sx={
+        isFromSideDrawer
+          ? { margin: '0 20px', marginBottom: '24px' }
+          : { marginTop: '4px' }
+      }
+    >
       <FormControl
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            borderRadius: '5px',
-            width: '215px',
-            height: '50px',
-            fontSize: '14px',
-            fontWeight: 400,
-          },
-        }}
+        variant={isFromSideDrawer ? 'outlined' : 'standard'}
+        sx={sxStyle}
       >
-        <Typography mb='15px'>{title}</Typography>
+        {title && <Typography mb='15px'>{title}</Typography>}
         <Select
           onChange={(event: SelectChangeEvent) =>
             handleChange(event, setDropdownValue)
           }
           value={dropdownValue}
+          disableUnderline={isFromSideDrawer ? false : true}
+          sx={!isFromSideDrawer ? { fontSize: '14px', color: '#666666' } : null}
         >
           {data.map((item) => (
             <MenuItem key={item.id} value={item.data}>

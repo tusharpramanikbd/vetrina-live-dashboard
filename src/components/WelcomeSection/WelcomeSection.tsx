@@ -1,6 +1,6 @@
 import React from 'react'
-import { Box, Link, Typography } from '@mui/material'
-import ExternalLinkIcon from '../../icons/ExternalLinkIcon'
+import { Box, Typography } from '@mui/material'
+import CustomLink from '../CustomLink/CustomLink'
 
 const WelcomeSection = () => {
   return (
@@ -19,28 +19,21 @@ const WelcomeSection = () => {
       <Typography variant='body1' fontSize='34px' color='#fff'>
         welcome Mario!
       </Typography>
-      <Box
-        sx={{
-          display: 'inline-block',
+      <CustomLink
+        link='http://app.vetrinalive.it/fenoh-store'
+        sxStyle={{
+          fontSize: '17px',
+          fontWeight: 500,
+          color: '#fff',
+          textDecoration: 'underline #fff',
+          marginTop: '10px',
+          display: 'flex',
+          alignItems: 'flex-start',
         }}
-      >
-        <Link
-          href='http://app.vetrinalive.it/fenoh-store'
-          target={'_blank'}
-          sx={{
-            fontSize: '17px',
-            fontWeight: 500,
-            color: '#fff',
-            textDecoration: 'underline #fff',
-            marginTop: '10px',
-            display: 'flex',
-            alignItems: 'flex-start',
-          }}
-        >
-          app.vetrinalive.it/fenoh-store
-          <ExternalLinkIcon style={{ marginLeft: '14px' }} />
-        </Link>
-      </Box>
+        text='app.vetrinalive.it/fenoh-store'
+        hasIcon={true}
+        fromWelcomeSection={true}
+      />
     </Box>
   )
 }

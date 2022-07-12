@@ -1,43 +1,37 @@
 import React from 'react'
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-
-const bull = (
-  <Box
-    component='span'
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-)
+import ViewShopIcon from '../../icons/ViewShopIcon'
+import WrapperCard from './WrapperCard'
+import CustomLink from '../CustomLink/CustomLink'
 
 const VisitorsCard = () => {
   return (
-    <Card sx={{ width: '100%' }} elevation={4}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color='text.secondary' gutterBottom>
-          Word of the Day
+    <WrapperCard
+      hasDropdown
+      HeaderIcon={ViewShopIcon}
+      title='Visitors'
+      CardBody={
+        <Typography fontWeight={500} fontSize='42px'>
+          1824
         </Typography>
-        <Typography variant='h5' component='div'>
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-          adjective
-        </Typography>
-        <Typography variant='body2'>
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size='small'>Learn More</Button>
-      </CardActions>
-    </Card>
+      }
+      CardFooter={
+        <CustomLink
+          sxStyle={{
+            fontSize: '14px',
+            fontWeight: 400,
+            color: '#21B8F9',
+            textDecoration: 'underline #21B8F9',
+            marginTop: '10px',
+            display: 'flex',
+            alignItems: 'flex-start',
+          }}
+          text='Do you want more visits? Contact us!'
+          hasIcon={true}
+          fromWelcomeSection={false}
+        />
+      }
+    />
   )
 }
 

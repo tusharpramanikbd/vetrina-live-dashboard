@@ -78,7 +78,20 @@ const SideMenu = () => {
           )) ||
           (item.isDropdown && isDrawerOpened && (
             <Box key={item.id} style={{ marginTop: '60px' }}>
-              <CustomDropdown title={item.title} data={item.items} />
+              <CustomDropdown
+                title={item.title}
+                data={item.items}
+                sxStyle={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '5px',
+                    width: '215px',
+                    height: '50px',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                  },
+                }}
+                isFromSideDrawer={true}
+              />
             </Box>
           ))
       )}
