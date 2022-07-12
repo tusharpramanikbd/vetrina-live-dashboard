@@ -3,6 +3,7 @@ import { Grid } from '@mui/material'
 import VisitorsCard from '../Cards/VisitorsCard'
 import OrdersCard from '../Cards/OrdersCard'
 import MobileCard from '../Cards/MobileCard'
+import ConfigureShopCard from '../Cards/ConfigureShopCard'
 
 const CardSection = () => {
   return (
@@ -40,7 +41,7 @@ const CardSection = () => {
       <Grid item xs={12} md={4} sx={{ paddingRight: '16px' }}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <VisitorsCard />
+            <ConfigureShopCard />
           </Grid>
           <Grid item xs={12}>
             <VisitorsCard />
