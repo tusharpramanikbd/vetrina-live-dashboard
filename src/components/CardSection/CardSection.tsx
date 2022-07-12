@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import VisitorsCard from '../Cards/VisitorsCard'
+import OrdersCard from '../Cards/OrdersCard'
 
 const CardSection = () => {
   return (
@@ -19,7 +20,7 @@ const CardSection = () => {
             <VisitorsCard />
           </Grid>
           <Grid item xs={12} md={6}>
-            <VisitorsCard />
+            <OrdersCard />
           </Grid>
           <Grid item xs={12} md={6}>
             <VisitorsCard />
