@@ -24,28 +24,31 @@ const WrapperCard: React.FC<WrapperCardType> = ({
         padding: '8px',
         minHeight: '220px',
         borderRadius: '10px',
+        ...style,
       }}
       elevation={4}
     >
-      <CardHeader
-        avatar={HeaderIcon && <HeaderIcon />}
-        title={
-          title && (
-            <Typography fontSize={'20px'} fontWeight={500}>
-              {title}
-            </Typography>
-          )
-        }
-        action={
-          (hasDropdown && (
-            <CustomDropdown
-              data={CardDropdownItemList}
-              isFromSideDrawer={false}
-            />
-          )) ||
-          (headerLink && headerLink)
-        }
-      />
+      {title && (
+        <CardHeader
+          avatar={HeaderIcon && <HeaderIcon />}
+          title={
+            title && (
+              <Typography fontSize={'20px'} fontWeight={500}>
+                {title}
+              </Typography>
+            )
+          }
+          action={
+            (hasDropdown && (
+              <CustomDropdown
+                data={CardDropdownItemList}
+                isFromSideDrawer={false}
+              />
+            )) ||
+            (headerLink && headerLink)
+          }
+        />
+      )}
       <CardContent sx={{ minHeight: '100px' }}>{CardBody}</CardContent>
       <CardActions sx={{ marginLeft: '12px', marginBottom: '14px' }}>
         {CardFooter}

@@ -23,7 +23,10 @@ const CustomLink: React.FC<CustomLinkType> = ({
           (fromWelcomeSection ? (
             <ExternalLinkIcon style={{ marginLeft: '14px' }} />
           ) : (
-            <ArrowRightIcon style={{ marginLeft: '14px' }} />
+            <ArrowRightIcon
+              color={sxStyle.color}
+              style={{ marginLeft: '14px' }}
+            />
           ))}
       </Link>
     </Box>

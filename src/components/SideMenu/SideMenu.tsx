@@ -43,10 +43,17 @@ const SideMenu = () => {
       <Box
         display='flex'
         justifyContent={isDrawerOpened ? 'space-between' : 'center'}
+        alignItems='center'
         mb={4}
         sx={{ padding: '29px 20px 0 20px' }}
       >
-        {isDrawerOpened && <img src={WEBSITE_LOGO} alt='website logo' />}
+        {isDrawerOpened && (
+          <img
+            src={WEBSITE_LOGO}
+            style={{ width: '93.25px', height: '13.75px' }}
+            alt='website logo'
+          />
+        )}
         <IconButton
           onClick={() =>
             handleDrawerState(showSubMenuItems, setShowSubMenuItems)

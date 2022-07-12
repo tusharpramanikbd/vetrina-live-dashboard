@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import VisitorsCard from '../Cards/VisitorsCard'
 import OrdersCard from '../Cards/OrdersCard'
+import MobileCard from '../Cards/MobileCard'
 
 const CardSection = () => {
   return (
@@ -23,7 +24,7 @@ const CardSection = () => {
             <OrdersCard />
           </Grid>
           <Grid item xs={12} md={6}>
-            <VisitorsCard />
+            <MobileCard />
           </Grid>
           <Grid item xs={12} md={6}>
             <VisitorsCard />
