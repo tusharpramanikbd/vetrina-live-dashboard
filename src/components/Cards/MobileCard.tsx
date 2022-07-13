@@ -9,7 +9,7 @@ const MobileCard = () => {
     <WrapperCard
       style={{
         background: '#F3A35C',
-        height: '349px',
+        height: '343px',
       }}
       CardBody={
         <Box>
