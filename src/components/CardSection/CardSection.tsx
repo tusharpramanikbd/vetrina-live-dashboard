@@ -6,6 +6,7 @@ import MobileCard from '../Cards/MobileCard'
 import ConfigureShopCard from '../Cards/ConfigureShopCard'
 import TrustPilotCard from '../Cards/TrustPilotCard'
 import InviteFriendCard from '../Cards/InviteFriendCard'
+import CustomerSupportCard from '../Cards/CustomerSupportCard'
 
 const CardSection = () => {
   return (
@@ -50,6 +51,9 @@ const CardSection = () => {
           </Grid>
           <Grid item xs={12}>
             <InviteFriendCard />
+          </Grid>
+          <Grid item xs={12}>
+            <CustomerSupportCard />
           </Grid>
         </Grid>
       </Grid>

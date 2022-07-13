@@ -23,7 +23,7 @@ const WrapperCard: React.FC<WrapperCardType> = ({
       sx={{
         width: '100%',
         padding: '8px',
-        minHeight: '220px',
+        minHeight: '200px',
         borderRadius: '10px',
         ...style,
       }}
@@ -55,7 +55,11 @@ const WrapperCard: React.FC<WrapperCardType> = ({
           }
         />
       )}
-      <CardContent sx={{ minHeight: '100px' }}>{CardBody}</CardContent>
+      <CardContent
+        sx={title !== 'Customer support' ? { minHeight: '100px' } : null}
+      >
+        {CardBody}
+      </CardContent>
       <CardActions sx={{ marginLeft: '12px', marginBottom: '14px' }}>
         {CardFooter}
       </CardActions>
