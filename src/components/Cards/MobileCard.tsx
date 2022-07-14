@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import { APP_STORE, GOOGLE_PLAY, IPHONE } from '../../utils/assetsPath'
+import appStore from '../../assets/images/appStore.png'
+import googlePlay from '../../assets/images/googlePlay.png'
+import iphone from '../../assets/images/iphone.png'
 import CustomLink from '../CustomLink/CustomLink'
 import WrapperCard from './WrapperCard'
 
@@ -38,7 +40,7 @@ const MobileCard = () => {
                 fromWelcomeSection={false}
               />
             </Box>
-            <img src={IPHONE} alt='iphone' width='113.79px' height='228.41px' />
+            <img src={iphone} alt='iphone' width='113.79px' height='228.41px' />
           </Box>
           <Box
             sx={{
@@ -47,9 +49,9 @@ const MobileCard = () => {
               marginTop: '29px',
             }}
           >
-            <img src={APP_STORE} alt='app store' width='126px' height='40px' />
+            <img src={appStore} alt='app store' width='126px' height='40px' />
             <img
-              src={GOOGLE_PLAY}
+              src={googlePlay}
               alt='google play'
               width='141px'
               height='40px'

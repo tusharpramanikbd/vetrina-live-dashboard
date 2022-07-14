@@ -1,8 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 
-import SideMenu from '../SideMenu/SideMenu'
-import MainSection from '../MainSection/MainSection'
+import SideMenu from '../../components/SideMenu/SideMenu'
+import MainSection from '../../components/MainSection/MainSection'
 
 const Dashboard = () => {
   return (

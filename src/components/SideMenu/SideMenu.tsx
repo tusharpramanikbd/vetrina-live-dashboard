@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 
-import { WEBSITE_LOGO } from '../../utils/assetsPath'
+import WebsiteLogo from '../../assets/images/website_logo.png'
 import Drawer from './Drawer'
 import SideMenuList from '../../data/SideMenuList'
 
@@ -49,7 +49,7 @@ const SideMenu = () => {
       >
         {isDrawerOpened && (
           <img
-            src={WEBSITE_LOGO}
+            src={WebsiteLogo}
             style={{ width: '93.25px', height: '13.75px' }}
             alt='website logo'
           />

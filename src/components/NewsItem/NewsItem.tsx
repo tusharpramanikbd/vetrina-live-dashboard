@@ -1,4 +1,4 @@
-import { Box, Link, Typography } from '@mui/material'
+import { Avatar, Box, Link, Typography } from '@mui/material'
 import React from 'react'
 import NewsItemType from '../../@types/NewsItemType'
 
@@ -10,7 +10,8 @@ const NewsItem: React.FC<NewsItemType> = ({
 }: NewsItemType) => {
   return (
     <Box sx={{ width: '310px', display: 'flex', alignItems: 'center' }}>
-      <img
+      <Avatar
+        variant='rounded'
         src={img}
         alt='news item'
         style={{ width: '100px', height: '100px', objectFit: 'cover' }}

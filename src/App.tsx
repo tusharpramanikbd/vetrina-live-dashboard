@@ -1,5 +1,5 @@
 import './App.css'
-import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './pages/Dashboard/Dashboard'
 import { ThemeProvider } from '@mui/material'
 import { MyTheme } from './MuiCustomTheme'
 
