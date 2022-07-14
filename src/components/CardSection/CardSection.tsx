@@ -1,14 +1,7 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import VisitorsCard from '../Cards/VisitorsCard'
-import OrdersCard from '../Cards/OrdersCard'
-import MobileCard from '../Cards/MobileCard'
-import ConfigureShopCard from '../Cards/ConfigureShopCard'
-import TrustPilotCard from '../Cards/TrustPilotCard'
-import InviteFriendCard from '../Cards/InviteFriendCard'
-import CustomerSupportCard from '../Cards/CustomerSupportCard'
-import ExtensionMarketplaceCard from '../Cards/ExtensionMarketplaceCard'
-import LatestNewsCard from '../Cards/LatestNewsCard'
+
+import { rightColumnCards, leftColumnCards } from '../../data/CardList'
 
 const CardSection = () => {
   return (
@@ -23,37 +16,20 @@ const CardSection = () => {
     >
       <Grid item xs={12} md={8}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <VisitorsCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <OrdersCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <MobileCard />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <ExtensionMarketplaceCard />
-          </Grid>
-          <Grid item xs={12}>
-            <LatestNewsCard />
-          </Grid>
+          {leftColumnCards.map(({ id, Card }) => (
+            <Grid key={id} item xs={12} md={id === '5' ? false : 6}>
+              <Card />
+            </Grid>
+          ))}
         </Grid>
       </Grid>
       <Grid item xs={12} md={4} sx={{ paddingRight: '16px' }}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <ConfigureShopCard />
-          </Grid>
-          <Grid item xs={12}>
-            <TrustPilotCard />
-          </Grid>
-          <Grid item xs={12}>
-            <InviteFriendCard />
-          </Grid>
-          <Grid item xs={12}>
-            <CustomerSupportCard />
-          </Grid>
+          {rightColumnCards.map(({ id, Card }) => (
+            <Grid key={id} item xs={12}>
+              <Card />
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Grid>
