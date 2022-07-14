@@ -10,7 +10,7 @@ const InviteFriendCard = () => {
       HeaderIcon={UsersIcon}
       title='Invite friend'
       CardBody={
-        <Typography fontSize='17px'>
+        <Typography sx={{ fontSize: '17px' }}>
           <span style={{ color: '#00C48C', fontWeight: 700 }}>
             Receive 50 products{' '}
           </span>{' '}

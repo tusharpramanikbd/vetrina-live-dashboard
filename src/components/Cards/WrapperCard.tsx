@@ -35,10 +35,12 @@ const WrapperCard: React.FC<WrapperCardType> = ({
           title={
             title && (
               <Typography
-                fontSize={'20px'}
-                fontWeight={500}
                 color={textColor}
                 marginLeft={textColor && '-14px'}
+                sx={{
+                  fontSize: '20px',
+                  fontWeight: 500,
+                }}
               >
                 {title}
               </Typography>

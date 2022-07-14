@@ -10,12 +10,12 @@ export default function CustomAppBar() {
   const theme = useTheme()
   return (
     <AppBar
-      position='fixed'
       elevation={0}
       sx={{
-        bgcolor: '#fff',
+        backgroundColor: '#FFFFFF',
         borderBottom: '1px solid #00000013',
         padding: '0 15px',
+        position: 'fixed',
       }}
     >
       <Toolbar
@@ -23,11 +23,13 @@ export default function CustomAppBar() {
       >
         <Typography
           variant='body1'
-          fontSize='17px'
-          fontWeight='500'
           component='div'
-          marginLeft={32}
-          color={theme.palette.text.secondary}
+          sx={{
+            fontSize: '17px',
+            fontWeight: 500,
+            marginLeft: '256px',
+            color: theme.palette.text.secondary,
+          }}
         >
           Dashboard
         </Typography>

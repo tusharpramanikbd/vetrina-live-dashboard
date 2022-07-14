@@ -1,4 +1,4 @@
-import { Avatar, Button, Typography } from '@mui/material'
+import { Avatar, Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import HeadphonesIcon from '../../icons/HeadphonesIcon'
 import WrapperCard from './WrapperCard'
@@ -9,15 +9,17 @@ const CustomerSupportCard = () => {
       HeaderIcon={HeadphonesIcon}
       title='Customer support'
       CardBody={
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Avatar
             src='https://randomuser.me/api/portraits/men/2.jpg'
             sx={{
               marginRight: '22px',
             }}
           />
-          <Typography fontSize='15px'>Simone is here to help you.</Typography>
-        </div>
+          <Typography sx={{ fontSize: '15px' }}>
+            Simone is here to help you.
+          </Typography>
+        </Box>
       }
       CardFooter={
         <Button
@@ -28,7 +30,6 @@ const CustomerSupportCard = () => {
             bgcolor: '#21B8F9',
             fontWeight: 600,
           }}
-          disableElevation
           variant='contained'
         >
           Contact us

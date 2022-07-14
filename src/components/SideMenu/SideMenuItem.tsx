@@ -31,16 +31,18 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
 
   return (
     <Box
-      display='flex'
-      flexDirection='column'
-      style={{ fontFamily: '"Noto Sans HK", sans-serif' }}
+      sx={{
+        fontFamily: '"Noto Sans HK", sans-serif',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
       onClick={(subMenuItems && handleMenuItemClick) || undefined}
     >
       <Box
-        display='flex'
-        justifyContent='space-between'
-        alignItems='center'
         sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           cursor: 'pointer',
           padding: '8px 20px',
           '&:hover': {
@@ -49,7 +51,13 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
         }}
       >
         {/* title and Icon */}
-        <Box display='flex' justifyContent='center' alignItems='center'>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <Icon
             color={isMenuSelected && '#21B8F9'}
             style={{
@@ -60,8 +68,8 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
           />
           {isDrawerOpened && (
             <Typography
-              fontSize='14px'
               sx={{
+                fontSize: '14px',
                 color: isMenuSelected ? '#21B8F9' : theme.palette.text.primary,
               }}
             >
@@ -98,8 +106,8 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
       {subMenuItems && (
         <Box
           display={showSubMenuItems && isMenuSelected ? 'flex' : 'none'}
-          flexDirection='column'
           sx={{
+            flexDirection: 'column',
             paddingLeft: '56px',
             paddingTop: '15px',
             bgcolor: '#E9F8FE',
@@ -112,7 +120,7 @@ const SideMenuItem: React.FC<SideMenuItemType> = ({
                 marginBottom: '20px',
               }}
             >
-              <Typography fontSize='14px'>{item.title}</Typography>
+              <Typography sx={{ fontSize: '14px' }}>{item.title}</Typography>
             </Box>
           ))}
         </Box>

@@ -11,7 +11,12 @@ const VisitorsCard = () => {
       HeaderIcon={ViewShopIcon}
       title='Visitors'
       CardBody={
-        <Typography fontWeight={500} fontSize='42px'>
+        <Typography
+          sx={{
+            fontWeight: 500,
+            fontSize: '42px',
+          }}
+        >
           1824
         </Typography>
       }

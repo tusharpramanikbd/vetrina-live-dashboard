@@ -5,7 +5,7 @@ import DetailsSection from '../DetailsSection/DetailsSection'
 
 const MainSection = () => {
   return (
-    <Box flexGrow={1} sx={{ marginBottom: '50px' }}>
+    <Box sx={{ marginBottom: '50px', flexGrow: 1 }}>
       <CustomAppBar />
       <DetailsSection />
     </Box>

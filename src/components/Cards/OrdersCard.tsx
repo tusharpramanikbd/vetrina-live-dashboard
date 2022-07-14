@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 import OrdersIcon from '../../icons/OrdersIcon'
 import CustomLink from '../CustomLink/CustomLink'
@@ -11,22 +11,22 @@ const OrdersCard = () => {
       HeaderIcon={OrdersIcon}
       title='Orders'
       CardBody={
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Box
+            sx={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
             }}
           >
-            <Typography fontWeight={400} fontSize='17px'>
+            <Typography sx={{ fontSize: '17px', fontWeight: 400 }}>
               Orders received:
             </Typography>
-            <Typography fontWeight={500} fontSize='17px'>
+            <Typography sx={{ fontSize: '17px', fontWeight: 500 }}>
               156
             </Typography>
-          </div>
-          <div
+          </Box>
+          <Box
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -39,8 +39,8 @@ const OrdersCard = () => {
             <Typography fontWeight={500} fontSize='17px'>
               € 1893,24
             </Typography>
-          </div>
-        </div>
+          </Box>
+        </Box>
       }
       CardFooter={
         <CustomLink

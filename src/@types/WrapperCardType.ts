@@ -1,12 +1,12 @@
 import { ComponentType, ReactNode, CSSProperties } from 'react'
 
-type WrapperCardType = {
+interface WrapperCardType {
+  HeaderIcon?: ComponentType
+  title?: string
+  headerLink?: ReactNode
+  hasDropdown?: boolean
   CardBody: ReactNode
   CardFooter?: ReactNode
-  HeaderIcon?: ComponentType
-  headerLink?: ReactNode
-  title?: string
-  hasDropdown?: boolean
   style?: CSSProperties
   textColor?: string
 }

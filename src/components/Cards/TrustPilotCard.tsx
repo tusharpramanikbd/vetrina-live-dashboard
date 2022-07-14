@@ -15,7 +15,7 @@ const TrustPilotCard = () => {
         background: '#000032',
       }}
       CardBody={
-        <Typography fontSize='17px' color='#ffffff'>
+        <Typography sx={{ fontSize: '17px', color: '#FFFFFF' }}>
           Show us your love by leaving a{' '}
           <span style={{ color: '#00C48C' }}>positive</span> review on trust
           pilot and receive the extension of{' '}

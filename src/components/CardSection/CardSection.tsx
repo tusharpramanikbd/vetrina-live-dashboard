@@ -10,7 +10,7 @@ const CardSection = () => {
       spacing={2}
       sx={{
         paddingLeft: '40px',
-        marginTop: '-80px',
+        marginTop: '-60px',
         width: '100%',
       }}
     >

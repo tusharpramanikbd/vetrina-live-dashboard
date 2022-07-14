@@ -14,23 +14,33 @@ const NewsItem: React.FC<NewsItemType> = ({
         variant='rounded'
         src={img}
         alt='news item'
-        style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+        sx={{ width: '100px', height: '100px', objectFit: 'cover' }}
       />
       <Box
-        display='flex'
-        flexDirection='column'
-        paddingLeft='16px'
-        sx={{ overflow: 'hidden', width: '210px' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingLeft: '16px',
+          overflow: 'hidden',
+          width: '210px',
+        }}
       >
         <Typography
-          fontWeight={500}
-          fontSize='11px'
-          color='#21B8F9'
-          textTransform='uppercase'
+          sx={{
+            fontSize: '11px',
+            fontWeight: 500,
+            color: '#21B8F9',
+            textTransform: 'uppercase',
+          }}
         >
           {newsType}
         </Typography>
-        <Typography fontWeight={500} fontSize='14px'>
+        <Typography
+          sx={{
+            fontSize: '14px',
+            fontWeight: 500,
+          }}
+        >
           {newsHeadline}
         </Typography>
         <Link

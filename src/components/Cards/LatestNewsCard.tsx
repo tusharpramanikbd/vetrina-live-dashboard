@@ -28,7 +28,14 @@ const LatestNewsCard = () => {
         />
       }
       CardBody={
-        <Box display='flex' flexWrap='wrap' columnGap='25px' rowGap='35px'>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            columnGap: '25px',
+            rowGap: '35px',
+          }}
+        >
           {NewsItemList.map((item) => {
             return (
               <NewsItem

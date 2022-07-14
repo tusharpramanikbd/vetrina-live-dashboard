@@ -16,7 +16,13 @@ const WelcomeSection = () => {
         padding: '40px 37px 0 37px',
       }}
     >
-      <Typography variant='body1' fontSize='34px' color='#fff'>
+      <Typography
+        variant='body1'
+        sx={{
+          fontSize: '34px',
+          color: '#FFFFFF',
+        }}
+      >
         welcome Mario!
       </Typography>
       <CustomLink

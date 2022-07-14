@@ -12,10 +12,12 @@ const ConfigureShopCard = () => {
       CardBody={
         <>
           <Typography
-            fontWeight={600}
-            fontSize='34px'
-            color='#FFA26B'
-            mb='20px'
+            sx={{
+              fontWeight: 600,
+              fontSize: '34px',
+              color: '#FFA26B',
+              marginBottom: '20px',
+            }}
             children={
               <>
                 <span>45%</span>
@@ -31,7 +33,7 @@ const ConfigureShopCard = () => {
               </>
             }
           />
-          <Typography fontSize='17px'>
+          <Typography sx={{ fontSize: '17px' }}>
             Complete all the steps to have a complete shop to best present to
             your customers.
           </Typography>

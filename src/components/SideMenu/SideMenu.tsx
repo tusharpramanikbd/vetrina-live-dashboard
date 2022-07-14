@@ -41,11 +41,13 @@ const SideMenu = () => {
     <Drawer variant='permanent' open={isDrawerOpened}>
       {/* Drawer Header */}
       <Box
-        display='flex'
         justifyContent={isDrawerOpened ? 'space-between' : 'center'}
-        alignItems='center'
-        mb={4}
-        sx={{ padding: '29px 20px 0 20px' }}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: '32px',
+          padding: '29px 20px 0 20px',
+        }}
       >
         {isDrawerOpened && (
           <img
@@ -84,7 +86,7 @@ const SideMenu = () => {
             <Divider key={item.id} sx={{ margin: '20px 0' }} />
           )) ||
           (item.isDropdown && isDrawerOpened && (
-            <Box key={item.id} style={{ marginTop: '60px' }}>
+            <Box key={item.id} sx={{ marginTop: '60px' }}>
               <CustomDropdown
                 title={item.title}
                 data={item.items}

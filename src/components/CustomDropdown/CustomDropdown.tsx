@@ -30,7 +30,9 @@ const CustomDropdown: React.FC<DropdownBoxDataType> = ({
         variant={isFromSideDrawer ? 'outlined' : 'standard'}
         sx={sxStyle}
       >
-        {title && <Typography mb='15px'>{title}</Typography>}
+        {title && (
+          <Typography sx={{ marginBottom: '15px' }}>{title}</Typography>
+        )}
         <Select
           onChange={(event: SelectChangeEvent) =>
             handleChange(event, setDropdownValue)
