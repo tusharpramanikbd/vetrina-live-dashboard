@@ -4,55 +4,53 @@ import OrdersIcon from '../../icons/OrdersIcon'
 import CustomLink from '../CustomLink/CustomLink'
 import WrapperCard from './WrapperCard'
 
+const generateStyles = () => {
+  return {
+    cardBodyRootBoxStyle: { display: 'flex', flexDirection: 'column' },
+    textBoxStyle: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    textLightStyle: { fontSize: '17px', fontWeight: 400 },
+    textBoldStyle: { fontSize: '17px', fontWeight: 500 },
+    customLinkStyle: {
+      fontSize: '14px',
+      fontWeight: 400,
+      color: '#21B8F9',
+      textDecoration: 'underline #21B8F9',
+      marginTop: '10px',
+      display: 'flex',
+      alignItems: 'flex-start',
+    },
+  }
+}
+
 const OrdersCard = () => {
+  const classes = generateStyles()
+
   return (
     <WrapperCard
       hasDropdown
       HeaderIcon={OrdersIcon}
       title='Orders'
       CardBody={
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Typography sx={{ fontSize: '17px', fontWeight: 400 }}>
+        <Box sx={classes.cardBodyRootBoxStyle}>
+          <Box sx={classes.textBoxStyle}>
+            <Typography sx={classes.textLightStyle}>
               Orders received:
             </Typography>
-            <Typography sx={{ fontSize: '17px', fontWeight: 500 }}>
-              156
-            </Typography>
+            <Typography sx={classes.textBoldStyle}>156</Typography>
           </Box>
-          <Box
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Typography fontWeight={400} fontSize='17px'>
-              Earnings:
-            </Typography>
-            <Typography fontWeight={500} fontSize='17px'>
-              € 1893,24
-            </Typography>
+          <Box style={classes.textBoxStyle}>
+            <Typography sx={classes.textLightStyle}>Earnings:</Typography>
+            <Typography sx={classes.textBoldStyle}>€ 1893,24</Typography>
           </Box>
         </Box>
       }
       CardFooter={
         <CustomLink
-          sxStyle={{
-            fontSize: '14px',
-            fontWeight: 400,
-            color: '#21B8F9',
-            textDecoration: 'underline #21B8F9',
-            marginTop: '10px',
-            display: 'flex',
-            alignItems: 'flex-start',
-          }}
+          sxStyle={classes.customLinkStyle}
           text='10 free tips to increase your sales'
           hasIcon={false}
           fromWelcomeSection={false}

@@ -3,35 +3,43 @@ import React from 'react'
 import HeadphonesIcon from '../../icons/HeadphonesIcon'
 import WrapperCard from './WrapperCard'
 
+const generateStyles = () => {
+  return {
+    boxStyle: { display: 'flex', alignItems: 'center' },
+    avatarStyle: {
+      marginRight: '22px',
+    },
+    textStyle: { fontSize: '15px' },
+    buttonStyle: {
+      textTransform: 'none',
+      width: '168px',
+      height: '50px',
+      bgcolor: '#21B8F9',
+      fontWeight: 600,
+    },
+  }
+}
+
 const CustomerSupportCard = () => {
+  const classes = generateStyles()
+
   return (
     <WrapperCard
       HeaderIcon={HeadphonesIcon}
       title='Customer support'
       CardBody={
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={classes.boxStyle}>
           <Avatar
             src='https://randomuser.me/api/portraits/men/2.jpg'
-            sx={{
-              marginRight: '22px',
-            }}
+            sx={classes.avatarStyle}
           />
-          <Typography sx={{ fontSize: '15px' }}>
+          <Typography sx={classes.textStyle}>
             Simone is here to help you.
           </Typography>
         </Box>
       }
       CardFooter={
-        <Button
-          sx={{
-            textTransform: 'none',
-            width: '168px',
-            height: '50px',
-            bgcolor: '#21B8F9',
-            fontWeight: 600,
-          }}
-          variant='contained'
-        >
+        <Button sx={classes.buttonStyle} variant='contained'>
           Contact us
         </Button>
       }

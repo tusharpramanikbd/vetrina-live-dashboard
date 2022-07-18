@@ -4,6 +4,15 @@ import CustomLinkType from '../../@types/CustomLinkType'
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon'
 import { ArrowRightIcon } from '../../icons/ArrowRightIcon'
 
+const generateStyles = () => {
+  return {
+    rootStyle: {
+      display: 'inline-block',
+    },
+    iconStyle: { marginLeft: '14px' },
+  }
+}
+
 const CustomLink: React.FC<CustomLinkType> = ({
   link,
   sxStyle,
@@ -11,25 +20,17 @@ const CustomLink: React.FC<CustomLinkType> = ({
   hasIcon,
   fromWelcomeSection,
 }: CustomLinkType) => {
+  const classes = generateStyles()
+
   return (
-    <Box
-      sx={{
-        display: 'inline-block',
-      }}
-    >
+    <Box sx={classes.rootStyle}>
       <Link href={link ? link : '#'} target={'_blank'} sx={sxStyle}>
         {text}
         {hasIcon &&
           (fromWelcomeSection ? (
-            <ExternalLinkIcon
-              style={{ marginLeft: '14px' }}
-              color={sxStyle.color}
-            />
+            <ExternalLinkIcon color={sxStyle.color} style={classes.iconStyle} />
           ) : (
-            <ArrowRightIcon
-              color={sxStyle.color}
-              style={{ marginLeft: '14px' }}
-            />
+            <ArrowRightIcon color={sxStyle.color} style={classes.iconStyle} />
           ))}
       </Link>
     </Box>

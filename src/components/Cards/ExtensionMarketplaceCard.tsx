@@ -9,7 +9,25 @@ import CustomLink from '../CustomLink/CustomLink'
 import CustomSlider from '../CustomSlider/CustomSlider'
 import WrapperCard from './WrapperCard'
 
+const generateStyles = () => {
+  return {
+    cardStyle: {
+      height: '343px',
+    },
+    customLinkStyle: {
+      fontSize: '14px',
+      fontWeight: 400,
+      color: '#21B8F9',
+      textDecoration: 'underline #21B8F9',
+      marginTop: '10px',
+      display: 'flex',
+      alignItems: 'flex-start',
+    },
+  }
+}
+
 const ExtensionMarketplaceCard = () => {
+  const classes = generateStyles()
   const { users, error } = useAppSelector(ExtensionUsersSelector)
   const dispatch = useAppDispatch()
 
@@ -24,21 +42,11 @@ const ExtensionMarketplaceCard = () => {
     <WrapperCard
       HeaderIcon={ExtensionsIcon}
       title='Extensions Marketplace'
-      style={{
-        height: '343px',
-      }}
+      style={classes.cardStyle}
       CardBody={<CustomSlider data={users && users} />}
       CardFooter={
         <CustomLink
-          sxStyle={{
-            fontSize: '14px',
-            fontWeight: 400,
-            color: '#21B8F9',
-            textDecoration: 'underline #21B8F9',
-            marginTop: '10px',
-            display: 'flex',
-            alignItems: 'flex-start',
-          }}
+          sxStyle={classes.customLinkStyle}
           text='Discover all extensions'
           hasIcon={true}
           fromWelcomeSection={false}

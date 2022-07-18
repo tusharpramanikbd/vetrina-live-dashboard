@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import Card from '@mui/material/Card'
 import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
@@ -7,6 +7,29 @@ import { CardHeader } from '@mui/material'
 import CustomDropdown from '../CustomDropdown/CustomDropdown'
 import CardDropdownItemList from '../../data/CardDropdownItemList'
 import WrapperCardType from '../../@types/WrapperCardType'
+
+const generateStyles = (
+  style: CSSProperties | undefined,
+  textColor: string | undefined
+) => {
+  return {
+    cardRootStyle: {
+      width: '100%',
+      padding: '8px',
+      minHeight: '200px',
+      borderRadius: '10px',
+      ...style,
+    },
+    titleTextStyle: {
+      fontSize: '20px',
+      fontWeight: 500,
+      color: textColor,
+      marginLeft: textColor && '-14px',
+    },
+    cardActionStyle: { marginLeft: '12px', marginBottom: '14px' },
+    minHeight: { minHeight: '100px' },
+  }
+}
 
 const WrapperCard: React.FC<WrapperCardType> = ({
   CardBody,
@@ -18,32 +41,16 @@ const WrapperCard: React.FC<WrapperCardType> = ({
   headerLink,
   textColor,
 }: WrapperCardType) => {
+  const classes = generateStyles(style, textColor)
+
   return (
-    <Card
-      sx={{
-        width: '100%',
-        padding: '8px',
-        minHeight: '200px',
-        borderRadius: '10px',
-        ...style,
-      }}
-      elevation={4}
-    >
+    <Card sx={classes.cardRootStyle} elevation={4}>
       {title && (
         <CardHeader
           avatar={HeaderIcon && <HeaderIcon />}
           title={
             title && (
-              <Typography
-                color={textColor}
-                marginLeft={textColor && '-14px'}
-                sx={{
-                  fontSize: '20px',
-                  fontWeight: 500,
-                }}
-              >
-                {title}
-              </Typography>
+              <Typography sx={classes.titleTextStyle}>{title}</Typography>
             )
           }
           action={
@@ -57,14 +64,10 @@ const WrapperCard: React.FC<WrapperCardType> = ({
           }
         />
       )}
-      <CardContent
-        sx={title !== 'Customer support' ? { minHeight: '100px' } : null}
-      >
+      <CardContent sx={title !== 'Customer support' ? classes.minHeight : null}>
         {CardBody}
       </CardContent>
-      <CardActions sx={{ marginLeft: '12px', marginBottom: '14px' }}>
-        {CardFooter}
-      </CardActions>
+      <CardActions sx={classes.cardActionStyle}>{CardFooter}</CardActions>
     </Card>
   )
 }

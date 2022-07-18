@@ -17,10 +17,36 @@ import SideMenuItem from './SideMenuItem'
 import { Divider } from '@mui/material'
 import CustomDropdown from '../CustomDropdown/CustomDropdown'
 
+const generateStyles = (isDrawerOpened: any) => {
+  return {
+    rootStyle: {
+      display: 'flex',
+      justifyContent: isDrawerOpened ? 'space-between' : 'center',
+      alignItems: 'center',
+      marginBottom: '32px',
+      padding: '29px 20px 0 20px',
+    },
+    logoStyle: { width: '93.25px', height: '13.75px' },
+    dividerStyle: { margin: '20px 0' },
+    dropdownBoxStyle: { marginTop: '60px' },
+    customDropdownStyle: {
+      '& .MuiOutlinedInput-root': {
+        borderRadius: '5px',
+        width: '215px',
+        height: '50px',
+        fontSize: '14px',
+        fontWeight: 400,
+      },
+    },
+  }
+}
+
 // React Component
 const SideMenu = () => {
   const { isDrawerOpened } = useAppSelector(menuDrawerSelector)
   const dispatch = useAppDispatch()
+
+  const classes = generateStyles(isDrawerOpened)
 
   const [menuSelected, setMenuSelected] = useState(0)
   const [showSubMenuItems, setShowSubMenuItems] = useState(false)
@@ -40,21 +66,9 @@ const SideMenu = () => {
   return (
     <Drawer variant='permanent' open={isDrawerOpened}>
       {/* Drawer Header */}
-      <Box
-        justifyContent={isDrawerOpened ? 'space-between' : 'center'}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          marginBottom: '32px',
-          padding: '29px 20px 0 20px',
-        }}
-      >
+      <Box sx={classes.rootStyle}>
         {isDrawerOpened && (
-          <img
-            src={WebsiteLogo}
-            style={{ width: '93.25px', height: '13.75px' }}
-            alt='website logo'
-          />
+          <img src={WebsiteLogo} style={classes.logoStyle} alt='website logo' />
         )}
         <IconButton
           onClick={() =>
@@ -83,22 +97,14 @@ const SideMenu = () => {
             </div>
           )) ||
           (item.isDividerItem && (
-            <Divider key={item.id} sx={{ margin: '20px 0' }} />
+            <Divider key={item.id} sx={classes.dividerStyle} />
           )) ||
           (item.isDropdown && isDrawerOpened && (
-            <Box key={item.id} sx={{ marginTop: '60px' }}>
+            <Box key={item.id} sx={classes.dropdownBoxStyle}>
               <CustomDropdown
                 title={item.title}
                 data={item.items}
-                sxStyle={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: '5px',
-                    width: '215px',
-                    height: '50px',
-                    fontSize: '14px',
-                    fontWeight: 400,
-                  },
-                }}
+                sxStyle={classes.customDropdownStyle}
                 isFromSideDrawer={true}
               />
             </Box>

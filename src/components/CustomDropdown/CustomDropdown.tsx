@@ -3,12 +3,22 @@ import DropdownBoxDataType from '../../@types/DropdownBoxDataType'
 import { Box, MenuItem, FormControl, Typography } from '@mui/material'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 
+const generateStyles = () => {
+  return {
+    rootStyle: { marginTop: '4px' },
+    rootStyleMB: { margin: '0 20px', marginBottom: '24px' },
+    titleStyle: { marginBottom: '15px' },
+    selectStyle: { fontSize: '14px', color: '#666666' },
+  }
+}
+
 const CustomDropdown: React.FC<DropdownBoxDataType> = ({
   title,
   data,
   sxStyle,
   isFromSideDrawer,
 }: DropdownBoxDataType) => {
+  const classes = generateStyles()
   const [dropdownValue, setDropdownValue] = useState(data[0].data)
 
   const handleChange = (
@@ -19,27 +29,19 @@ const CustomDropdown: React.FC<DropdownBoxDataType> = ({
   }
 
   return (
-    <Box
-      sx={
-        isFromSideDrawer
-          ? { margin: '0 20px', marginBottom: '24px' }
-          : { marginTop: '4px' }
-      }
-    >
+    <Box sx={isFromSideDrawer ? classes.rootStyleMB : classes.rootStyle}>
       <FormControl
         variant={isFromSideDrawer ? 'outlined' : 'standard'}
         sx={sxStyle}
       >
-        {title && (
-          <Typography sx={{ marginBottom: '15px' }}>{title}</Typography>
-        )}
+        {title && <Typography sx={classes.titleStyle}>{title}</Typography>}
         <Select
           onChange={(event: SelectChangeEvent) =>
             handleChange(event, setDropdownValue)
           }
           value={dropdownValue}
           disableUnderline={isFromSideDrawer ? false : true}
-          sx={!isFromSideDrawer ? { fontSize: '14px', color: '#666666' } : null}
+          sx={!isFromSideDrawer ? classes.selectStyle : null}
         >
           {data.map((item) => (
             <MenuItem key={item.id} value={item.data}>
